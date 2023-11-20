@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {IsNotEmpty, IsString, IsNumber, IsIn} from 'class-validator';
+import {IsNotEmpty, IsString, IsNumber} from 'class-validator';
 export class SupermercadoDto {
 
  @IsString()

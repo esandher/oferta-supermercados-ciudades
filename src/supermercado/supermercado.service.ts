@@ -27,7 +27,7 @@ export class SupermercadoService {
       });
     if (!supermercado)
       throw new BusinessLogicException(
-        'No se encuentra ningún supermercado con este id',
+        'No existe el supermercado (id)',
         BusinessError.NOT_FOUND,
       );
     return supermercado;
@@ -45,7 +45,7 @@ export class SupermercadoService {
       await this.supermercadoRepository.findOne({ where: { id } });
     if (!persistedSupermercado)
       throw new BusinessLogicException(
-        'No se encuentra ningún supermercado con este id',
+        'No existe el supermercado (id)',
         BusinessError.NOT_FOUND,
       );
     supermercado.id = id;
@@ -58,7 +58,7 @@ export class SupermercadoService {
       });
     if (!supermercado)
       throw new BusinessLogicException(
-        'No se encuentra ningún supermercado con este id',
+        'No existe el supermercado (id)',
         BusinessError.NOT_FOUND,
       );
     await this.supermercadoRepository.remove(supermercado);

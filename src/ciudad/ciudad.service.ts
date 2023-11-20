@@ -27,7 +27,7 @@ export class CiudadService {
     });
     if (!ciudad)
       throw new BusinessLogicException(
-        'No se encuentra ningún supermercado con este id',
+        'No existe el supermercado (id)',
         BusinessError.NOT_FOUND,
       );
     return ciudad;
@@ -42,7 +42,7 @@ export class CiudadService {
       await this.ciudadRepository.findOne({ where: { id } });
     if (!persistedCiudad)
       throw new BusinessLogicException(
-        'No se encuentra ninguna ciudad con este id',
+        'No existe la ciudad (id)',
         BusinessError.NOT_FOUND,
       );
     ciudad.id = id;
@@ -55,7 +55,7 @@ export class CiudadService {
     });
     if (!ciudad)
       throw new BusinessLogicException(
-        'No se encuentra ninguna ciudad con este id',
+        'No existe la ciudad (id)',
         BusinessError.NOT_FOUND,
       );
     await this.ciudadRepository.remove(ciudad);

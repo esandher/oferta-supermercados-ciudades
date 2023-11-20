@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { IsNotEmpty, IsNumber, IsString, Matches } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString, IsIn, Matches } from "class-validator";
 
 export class CiudadDto {
    @IsString()
@@ -8,7 +8,8 @@ export class CiudadDto {
 
    @IsString()
    @IsNotEmpty()
-   @Matches(/^[A-Z]{3}$/)
+   @IsIn(['Argentina', 'Ecuador', 'Paraguay'])
+   //@Matches(/^[A-Z]{3}$/)
    readonly pais: string;
 
    @IsNumber()

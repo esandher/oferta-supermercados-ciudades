@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseInterceptors, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CiudadService } from './ciudad.service';
 import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors/business-errors.interceptor'
 import { CiudadDto } from './ciudad.dto';
@@ -22,6 +22,7 @@ export class CiudadController {
   }
 
   @Post()
+  @UsePipes(new ValidationPipe())
   async create(@Body() ciudadDto: CiudadDto) {
     const tienda: CiudadEntity = plainToInstance(CiudadEntity, ciudadDto);
     return await this.ciudadService.create(tienda);
